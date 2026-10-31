@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -9,46 +10,32 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String fileName = "products.csv";
 
+        ArrayList<Product> dataFromFile = StoreManager.extractFileData(fileName);
+        StoreManager manager = new StoreManager(dataFromFile);
 
 
-        System.out.println(StoreRepository.readFile(fileName));
+        while(true){
+            ConsoleUtils.displayMainMenu();
+
+            int menuChoice = Integer.parseInt(ConsoleUtils.getValidInput(scanner, "Enter menu option(1-3):", "[1-3]","Error: Please enter valid menu option (1-3)."));
+
+            switch (menuChoice){
+                case 1:
+                    manager.displayProducts(dataFromFile);
+                    ConsoleUtils.displayProductsSubMenu();
 
 
-//        while(true){
-//            System.out.println("""
-//                ---------------------------------------------
-//                ======Welcome to Hassieb's Online Store======
-//                ---------------------------------------------
-//                1. Display Products
-//                2. Display Cart
-//                3. Exit""");
-//
-//            int userChoice = Integer.parseInt(scanner.nextLine());
-//
-//            switch (userChoice){
-//                case 1:
-//                    System.out.println("""
-//                            ---------------------------------------------
-//                            1. Search/Filter Products by Department
-//                            2. Add Product to Cart
-//                            3. Go Back to Home Page""");
-//                    break;
-//                case 2:
-//                    System.out.println("""
-//                            ---------------------------------------------
-//                            1. Check Out
-//                            2. Remove Product From Cart
-//                            3. Go Back to Home Page""");
-//                    break;
-//                case 3:
-//                    System.out.println("Exiting Store...");
-//                    scanner.close();
-//                    return;
-//                default:
-//                    System.out.println("Error: Please enter valid menu option (1-3).");
-//            }//switch
-//        }//while
-//
+                    break;
+                case 2:
+                    ConsoleUtils.displayCartSubMenu();
+                    break;
+                case 3:
+                    System.out.println("Exiting Store...");
+                    scanner.close();
+                    return;
+            }//switch
+        }//while
+
 
     }
 }
