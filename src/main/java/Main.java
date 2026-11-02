@@ -14,7 +14,6 @@ public class Main {
         StoreManager manager = new StoreManager(dataFromFile);
 
 
-
         while(true){
             ConsoleUtils.displayMainMenu();
 
@@ -22,10 +21,14 @@ public class Main {
 
             switch(menuChoice){
                 case 1:
+                    System.out.println();
                     ConsoleUtils.runProductMenu(scanner, manager, dataFromFile);
-                   break;
+                    System.out.println();
+                    break;
                 case 2:
+                    System.out.println();
                     ConsoleUtils.runCartMenu(scanner, manager);
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("Exiting Store...");
