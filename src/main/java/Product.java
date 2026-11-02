@@ -1,8 +1,8 @@
 public class Product {
-    private String SKU;
-    private String productName;
-    private double price;
-    private String department;
+    private final String SKU;
+    private final String productName;
+    private final double price;
+    private final String department;
 
     public Product(String SKU, String productName, double price, String department) {
         this.SKU = SKU;
@@ -15,31 +15,16 @@ public class Product {
         return SKU;
     }
 
-    public void setSKU(String SKU) {
-        this.SKU = SKU;
-    }
-
     public String getProductName() {
         return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 }

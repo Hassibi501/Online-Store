@@ -14,20 +14,18 @@ public class Main {
         StoreManager manager = new StoreManager(dataFromFile);
 
 
+
         while(true){
             ConsoleUtils.displayMainMenu();
 
             int menuChoice = Integer.parseInt(ConsoleUtils.getValidInput(scanner, "Enter menu option(1-3):", "[1-3]","Error: Please enter valid menu option (1-3)."));
 
-            switch (menuChoice){
+            switch(menuChoice){
                 case 1:
-                    manager.displayProducts(dataFromFile);
-                    ConsoleUtils.displayProductsSubMenu();
-
-
-                    break;
+                    ConsoleUtils.runProductMenu(scanner, manager, dataFromFile);
+                   break;
                 case 2:
-                    ConsoleUtils.displayCartSubMenu();
+                    ConsoleUtils.runCartMenu(scanner, manager);
                     break;
                 case 3:
                     System.out.println("Exiting Store...");
